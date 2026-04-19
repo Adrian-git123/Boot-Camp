@@ -1,0 +1,125 @@
+*{
+    text-decoration: none;
+    margin: 0;
+    padding: 0;
+    font-family: sen;
+}
+
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; 
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 255, 0.6)), url(images/logo.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+.account{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 600px;
+    border: 2px solid #fff;
+    height: max-content;
+    overflow: hidden;
+}
+
+.login, .sign__up{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 500px;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.61);
+    backdrop-filter: blur(5px);
+    height: 600px;
+    padding: 50px 20px;
+    color: #fff;
+    border-radius: 15px;
+    transition: .5s ease-in-out all;
+}
+
+.sign__up{
+    top: -100%;
+}
+
+.login h1, .sign__up h1{
+    font-size: 3rem;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+
+.login form, .sign__up form{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 400px;
+    height: max-content;
+}
+
+form input{
+    margin: 5px 0;
+    padding: 10px;
+    font-size: 18px;
+    width: 90%;
+    height: 40px;
+    background-color: #66b6f898;
+    border: none;
+    border-radius: 17px;
+    padding: 10px 20px;
+}
+
+form button{
+    width: 90%;
+    padding: 10px 20px;
+    height: 50px;
+    font-size: 18px;
+    border: none;
+    color: #fff;
+    background-color: rgba(22, 22, 179, 0.842);
+    margin-top: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: .5s ease-in-out all;
+}
+
+form button:hover{
+    transform: translateY(-5px);
+    background-color: #1e11d1;
+}
+
+.info{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin: 20px;
+    width: 400px;
+}
+
+.info p{
+    color: #fff;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.n{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px 0;
+    gap: 10px;
+}
+
+.n input{
+    width: 20px;
+    height: 30px;
+    font-size: 18px;
+}
+::-webkit-input-placeholder {
+    color: #fff;
+    opacity: .7;
+}

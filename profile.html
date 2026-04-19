@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght,YOPQ@100..900,300&family=Sen:wght@400..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="profile.css">
+    <link rel="icon" href="images/logo.png" type="png">
+    <title>Login | BootKB</title>
+</head>
+<body>
+    <div class="account">
+        <div class="login" id="login">
+            <h1>Login</h1>
+            <form action="">
+                <input type="email" placeholder="Email">
+                <input type="password" placeholder="Password">
+                <button>Login</button>
+                <div class="info">
+                    <p onclick="displayRegister()">Don't have an account? <a href="#" >Sign Up</a></p>
+                    <div class="n">
+                        <input type="checkbox">Keep me logged in
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="sign__up" >
+            <h1>Sign Up</h1>
+            <form action="">
+                <input type="text" placeholder="Full Name">
+                <input type="email" placeholder="Email">
+                <input type="password" placeholder="Password">
+                <button>Sign Up</button>
+                <div class="info">
+                    <p onclick="displayLogin()">Already have an account? <a href="#" >Login</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="profile.js"></script>
+</body>
+</html>
