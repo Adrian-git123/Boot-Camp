@@ -5,19 +5,25 @@
     font-family: 'sen', 'kumbh sans', 'poppins', sans-serif;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body{
     background-color: #fff;
 }
 
 .navbar{
     padding: 20px;
-    background-color: rgba(21, 109, 131, 0.466);
-    backdrop-filter: blur(5px);
+    background: rgba(21, 109, 131, 0.466);
+    backdrop-filter: blur(10px);
     position: sticky;
-    width: auto;
+    width: 100%;
     top: 0;
     animation: slideDown 0.6s ease-out;
-    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+    z-index: 1000;
 }
 
 @keyframes slideDown {
@@ -44,11 +50,15 @@ body{
     font-weight: bold;
     cursor: pointer;
     transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    background: linear-gradient(135deg, rgb(19, 76, 161), cyan);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 .logo:hover{
     transform: scale(1.1) rotate(2deg);
-    text-shadow: 0 0 20px rgba(19, 76, 161, 0.5);
+    filter: drop-shadow(0 0 20px rgba(19, 76, 161, 0.5));
 }
 
 .menu{
@@ -64,6 +74,8 @@ body{
     padding: 10px 0;
     transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
     position: relative;
+    font-weight: 500;
+    letter-spacing: 0.5px;
 }
 
 .menu__keys li::after{
@@ -78,7 +90,7 @@ body{
 }
 
 .menu__keys li:hover{
-    color: navy;
+    color: cyan;
 }
 
 .menu__keys li:hover::after{
@@ -92,13 +104,16 @@ body{
     border: none;
     color: #fff;
     background: linear-gradient(135deg, rgba(22, 22, 179, 0.842), rgba(0, 0, 128, 0.7));
-    border-radius: 18px;
+    border-radius: 25px;
     margin-left: 10px;
     transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
     cursor: pointer;
     position: relative;
     overflow: hidden;
     box-shadow: 0 4px 15px rgba(22, 22, 179, 0.3);
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .menu__btn button::before{
@@ -114,7 +129,8 @@ body{
 
 .menu__btn button:hover{
     transform: translateY(-5px) scale(1.05);
-    box-shadow: 0 8px 25px rgba(22, 22, 179, 0.5);
+    box-shadow: 0 12px 35px rgba(22, 22, 179, 0.5);
+    border: 1px solid rgba(0, 255, 255, 0.4);
 }
 
 .menu__btn button:hover::before{
@@ -127,12 +143,24 @@ body{
     align-items: center;
     width: auto;
     flex-direction: column;
-    background-image: linear-gradient(45deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 128, 0.836)), url(images/logo.png);
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 128, 0.836)), url(images/logo.png);
     background-attachment: fixed;
     background-size: cover;
     background-repeat: no-repeat;
     height: max-content;
     animation: fadeInUp 0.8s ease-out;
+    position: relative;
+}
+
+.welcome::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 50% 50%, rgba(0, 255, 255, 0.05), transparent);
+    pointer-events: none;
 }
 
 @keyframes fadeInUp {
@@ -154,11 +182,13 @@ body{
     align-items: center;
     justify-content: center;
     font-family: kumbh sans;
-    background-image: linear-gradient(45deg, cyan, white);
+    background: linear-gradient(45deg, cyan, white);
     width: max-content;
     background-clip: text;
     -webkit-text-fill-color: transparent;
     animation: glowPulse 2.5s ease-in-out infinite;
+    position: relative;
+    z-index: 1;
 }
 
 @keyframes glowPulse {
@@ -177,14 +207,17 @@ body{
     width: 100%;
     height: auto;
     margin: 0 auto;
+    position: relative;
+    z-index: 1;
 }
 
 .images__welcome img{
     width: 30%;
     height: auto;
-    border-radius: 10px;
+    border-radius: 15px;
     animation: zoomInImage 0.8s ease-out;
     transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
 }
 
 @keyframes zoomInImage {
@@ -200,7 +233,7 @@ body{
 
 .images__welcome img:hover{
     transform: scale(1.05) translateY(-10px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 30px 80px rgba(0, 255, 255, 0.2);
 }
 
 .cards{
@@ -209,6 +242,7 @@ body{
     justify-content: center;
     margin: 20px;
     flex-wrap: wrap;
+    gap: 20px;
 }
 
 .card1, .card2, .card3, .card4{
@@ -222,12 +256,14 @@ body{
     justify-content: center;
     align-items: center;
     color: rgba(0, 0, 0, 0);
-    border-radius: 10px;
-    backdrop-filter: blur(5px);
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
     transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
     position: relative;
     overflow: hidden;
     animation: slideInUp 0.6s ease-out both;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
 }
 
 @keyframes slideInUp {
@@ -259,9 +295,9 @@ body{
     background-size: 100%;
     background-repeat: no-repeat;
     color: #fff;
-    backdrop-filter: blur(5px);
+    backdrop-filter: blur(10px);
     transform: translateY(-15px) scale(1.05);
-    box-shadow: 0 15px 40px rgba(0, 0, 128, 0.3);
+    box-shadow: 0 20px 50px rgba(0, 0, 128, 0.4);
 }
 
 .card2{
@@ -277,9 +313,9 @@ body{
     background-size: cover;
     background-repeat: no-repeat;
     color: #fff;
-    backdrop-filter: blur(5px);
+    backdrop-filter: blur(10px);
     transform: translateY(-15px) scale(1.05);
-    box-shadow: 0 15px 40px rgba(0, 0, 128, 0.3);
+    box-shadow: 0 20px 50px rgba(0, 0, 128, 0.4);
 }
 
 .card3{
@@ -295,9 +331,9 @@ body{
     background-size: 100%;
     background-repeat: no-repeat;
     color: #fff;
-    backdrop-filter: blur(5px);
+    backdrop-filter: blur(10px);
     transform: translateY(-15px) scale(1.05);
-    box-shadow: 0 15px 40px rgba(0, 0, 128, 0.3);
+    box-shadow: 0 20px 50px rgba(0, 0, 128, 0.4);
 }
 
 .card4{
@@ -313,9 +349,9 @@ body{
     background-size: cover;
     background-repeat: no-repeat;
     color: #fff;
-    backdrop-filter: blur(5px);
+    backdrop-filter: blur(10px);
     transform: translateY(-15px) scale(1.05);
-    box-shadow: 0 15px 40px rgba(0, 0, 128, 0.3);
+    box-shadow: 0 20px 50px rgba(0, 0, 128, 0.4);
 }
 
 a{
@@ -337,6 +373,18 @@ a:hover{
     height: 110vh;
     gap: 5%;
     animation: fadeIn 0.8s ease-out;
+    position: relative;
+}
+
+.about::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, transparent, rgba(0, 0, 128, 0.02), transparent);
+    pointer-events: none;
 }
 
 @keyframes fadeIn {
@@ -353,6 +401,12 @@ a:hover{
     text-align: start;
     width: max-content;
     animation: slideInLeft 0.8s ease-out;
+    position: relative;
+    z-index: 1;
+    background: linear-gradient(135deg, #000, rgb(19, 76, 161));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 @keyframes slideInLeft {
@@ -369,14 +423,17 @@ a:hover{
 .about__info{
     display: flex;
     flex-direction: column;
+    position: relative;
+    z-index: 1;
 }
 
 .about__img img{
-    border-radius: 15px;
+    border-radius: 20px;
     width: 85%;
     transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
     animation: slideInRight 0.8s ease-out;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 @keyframes slideInRight {
@@ -392,7 +449,7 @@ a:hover{
 
 .about__img img:hover{
     transform: scale(1.05) rotateZ(2deg);
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.25);
 }
 
 .projects{
@@ -401,23 +458,44 @@ a:hover{
     justify-content: center;
     align-items: center;
     padding: 100px;
-    background: linear-gradient(135deg, #000, #1a1a2e);
+    background: linear-gradient(135deg, #0f0f1e, #1a1a2e);
     color: #fff;
     height: 110vh;
     text-align: center;
     animation: fadeIn 0.8s ease-out;
     position: relative;
+    overflow: hidden;
 }
 
 .projects::before{
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(0, 255, 255, 0.05) 1px, transparent 1px);
+    background-size: 50px 50px;
+    animation: float 20s linear infinite;
+    pointer-events: none;
+}
+
+.projects::after{
     content: '';
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: radial-gradient(circle at 50% 50%, rgba(0, 255, 255, 0.1), transparent);
+    background: radial-gradient(circle at 20% 50%, rgba(0, 0, 255, 0.05), transparent 50%),
+                radial-gradient(circle at 80% 50%, rgba(0, 255, 255, 0.05), transparent 50%);
     pointer-events: none;
+}
+
+@keyframes float {
+    0% { transform: translate(0, 0); }
+    50% { transform: translate(25px, 25px); }
+    100% { transform: translate(0, 0); }
 }
 
 .projects h1{
@@ -449,16 +527,18 @@ a:hover{
     flex-wrap: wrap;
     position: relative;
     z-index: 1;
+    gap: 20px;
 }
 
 .images__projects img{
     display: block;
     width: 20%;
     height: 80%;
-    margin: 1%;
-    border-radius: 10px;
+    border-radius: 15px;
     transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
     animation: fadeInScale 0.6s ease-out both;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 @keyframes fadeInScale {
@@ -479,7 +559,7 @@ a:hover{
 
 .images__projects img:hover{
     transform: translateY(-15px) scale(1.1);
-    box-shadow: 0 20px 50px rgba(0, 255, 255, 0.3);
+    box-shadow: 0 25px 70px rgba(0, 255, 255, 0.3);
     filter: brightness(1.1);
 }
 
@@ -501,7 +581,7 @@ a:hover{
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, transparent, rgba(0, 0, 128, 0.05), transparent);
+    background: linear-gradient(135deg, transparent, rgba(0, 0, 128, 0.02), transparent);
     pointer-events: none;
 }
 
@@ -522,7 +602,7 @@ a:hover{
     justify-content: center;
     align-items: center;
     text-align: center;
-    border-radius: 15px;
+    border-radius: 20px;
     margin: 5px;
     transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
     cursor: pointer;
@@ -530,6 +610,8 @@ a:hover{
     position: relative;
     z-index: 1;
     animation: popIn 0.6s ease-out both;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 @keyframes popIn {
@@ -586,42 +668,42 @@ a:hover{
 
 .activities p:nth-child(1):hover{
     background-image: linear-gradient(to bottom, rgba(0, 0, 128, 0.37), rgba(0, 0, 128, 0.6) ), url("images/ee.jpg");
-    backdrop-filter: blur(5px);
+    backdrop-filter: blur(10px);
     color: #fff;
     transform: translateY(-15px) scale(1.08);
-    box-shadow: 0 15px 40px rgba(0, 0, 128, 0.3);
+    box-shadow: 0 20px 60px rgba(0, 0, 128, 0.4);
 }
 
 .activities p:nth-child(2):hover{
     background-image: linear-gradient(to bottom, rgba(0, 0, 128, 0.37), rgba(0, 0, 128, 0.6) ), url("images/elec.jpg");
-    backdrop-filter: blur(5px);
+    backdrop-filter: blur(10px);
     color: #fff;
     transform: translateY(-15px) scale(1.08);
-    box-shadow: 0 15px 40px rgba(0, 0, 128, 0.3);
+    box-shadow: 0 20px 60px rgba(0, 0, 128, 0.4);
 }
 
 .activities p:nth-child(3):hover{
     background-image: linear-gradient(to bottom, rgba(0, 0, 128, 0.37), rgba(0, 0, 128, 0.6) ), url("images/mr.\ mwaniki.jpg");
-    backdrop-filter: blur(5px);
+    backdrop-filter: blur(10px);
     color: #fff;
     transform: translateY(-15px) scale(1.08);
-    box-shadow: 0 15px 40px rgba(0, 0, 128, 0.3);
+    box-shadow: 0 20px 60px rgba(0, 0, 128, 0.4);
 }
 
 .activities p:nth-child(4):hover{
     background-image: linear-gradient(to bottom, rgba(0, 0, 128, 0.37), rgba(0, 0, 128, 0.6) ), url("images/57.jpg");
-    backdrop-filter: blur(5px);
+    backdrop-filter: blur(10px);
     color: #fff;
     transform: translateY(-15px) scale(1.08);
-    box-shadow: 0 15px 40px rgba(0, 0, 128, 0.3);
+    box-shadow: 0 20px 60px rgba(0, 0, 128, 0.4);
 }
 
 .activities p:nth-child(5):hover{
     background-image: linear-gradient(to bottom, rgba(0, 0, 128, 0.37), rgba(0, 0, 128, 0.6) ), url("images/gh.webp");
-    backdrop-filter: blur(5px);
+    backdrop-filter: blur(10px);
     color: #fff;
     transform: translateY(-15px) scale(1.08);
-    box-shadow: 0 15px 40px rgba(0, 0, 128, 0.3);
+    box-shadow: 0 20px 60px rgba(0, 0, 128, 0.4);
 }
 
 .program{
@@ -629,12 +711,13 @@ a:hover{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(135deg, #000, #0a0e27);
+    background: linear-gradient(135deg, #0f0f1e, #1a1a2e);
     color: #fff;
     height: max-content;
     padding: 50px 0 100px 0;
     animation: fadeIn 0.8s ease-out;
     position: relative;
+    overflow: hidden;
 }
 
 .program::before{
@@ -644,8 +727,8 @@ a:hover{
     left: 0;
     width: 100%;
     height: 100%;
-    background: radial-gradient(circle at 20% 50%, rgba(0, 0, 255, 0.05), transparent),
-                radial-gradient(circle at 80% 50%, rgba(0, 255, 255, 0.05), transparent);
+    background: radial-gradient(circle at 20% 50%, rgba(0, 0, 255, 0.03), transparent 50%),
+                radial-gradient(circle at 80% 50%, rgba(0, 255, 255, 0.03), transparent 50%);
     pointer-events: none;
 }
 
@@ -662,28 +745,39 @@ a:hover{
     animation: slideInUp 0.8s ease-out;
     position: relative;
     z-index: 1;
+    backdrop-filter: blur(5px);
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .program table td,th{
-    border: 2px solid #fff;
-    padding: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 15px 20px;
     transition: all 0.3s ease-out;
+    font-weight: 500;
+}
+
+.program table th {
+    background: rgba(22, 22, 179, 0.2);
+    backdrop-filter: blur(10px);
 }
 
 .program table tr:hover td {
-    background-color: rgba(0, 0, 128, 0.2);
+    background-color: rgba(0, 0, 128, 0.15);
     transform: scale(1.02);
 }
 
 .day{
-    background-color: #fff;
+    background-color: rgba(255, 255, 255, 0.1);
     color: #000;
     padding: 20px;
     transition: all 0.3s ease-out;
+    font-weight: 600;
 }
 
 .day:hover{
-    background-color: rgba(0, 0, 128, 0.1);
+    background-color: rgba(0, 0, 128, 0.15);
     box-shadow: 0 5px 15px rgba(0, 0, 128, 0.2);
 }
 
@@ -701,9 +795,23 @@ a:hover{
 }
 
 footer, .container{
-    background: linear-gradient(135deg, #000, #0a0e27);
+    background: linear-gradient(135deg, #0f0f1e, #1a1a2e);
     color: #fff;
     animation: fadeIn 0.8s ease-out;
+    position: relative;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+footer::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 20% 50%, rgba(0, 0, 255, 0.02), transparent),
+                radial-gradient(circle at 80% 50%, rgba(0, 255, 255, 0.02), transparent);
+    pointer-events: none;
 }
 
 .row{
@@ -711,6 +819,8 @@ footer, .container{
     justify-content: space-between;
     padding: 48px 100px;
     animation: slideInUp 0.8s ease-out;
+    position: relative;
+    z-index: 1;
 }
 
 .footer-col{
@@ -731,6 +841,8 @@ footer, .container{
     position: relative;
     font-family: ubuntu;
     transition: all 0.3s ease-out;
+    font-weight: 600;
+    letter-spacing: 0.5px;
 }
 
 .footer-col h4::before{
@@ -769,10 +881,13 @@ footer, .container{
     display: block;
     padding-left: 20px;
     margin: 14px 0;
-    border-radius: 8px;
+    border-radius: 12px;
     transition: all 0.3s ease-out;
     background-color: rgba(255, 255, 255, 0.1);
     color: #fff;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    font-weight: 500;
 }
 
 .footer-col input::placeholder{
@@ -781,9 +896,9 @@ footer, .container{
 
 .footer-col input:focus{
     outline: none;
-    background-color: rgba(255, 255, 255, 0.2);
-    box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
-    border: 2px solid cyan;
+    background-color: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.4);
+    border: 1px solid rgba(0, 255, 255, 0.5);
 }
 
 .input__submit{
@@ -796,8 +911,10 @@ footer, .container{
     position: relative;
     overflow: hidden;
     height: 45px;
-    border-radius: 8px;
+    border-radius: 12px;
     font-weight: 600;
+    letter-spacing: 0.5px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .input__submit::before{
@@ -813,7 +930,8 @@ footer, .container{
 
 .input__submit:hover{
     transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(35, 65, 150, 0.4);
+    box-shadow: 0 10px 30px rgba(35, 65, 150, 0.5);
+    border: 1px solid rgba(0, 255, 255, 0.4);
 }
 
 .input__submit:hover::before{
@@ -823,6 +941,7 @@ footer, .container{
 .col p{
     color: #fff;
     transition: all 0.3s ease-out;
+    font-weight: 500;
 }
 
 .col p:hover{
@@ -831,12 +950,15 @@ footer, .container{
 }
 
 .row hr{
-    opacity: .7;
+    opacity: .3;
     transition: all 0.3s ease-out;
+    border: none;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
 }
 
 .row:hover hr{
-    opacity: 1;
+    opacity: 0.7;
     box-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
 }
 
@@ -846,6 +968,9 @@ footer, .container{
     justify-content: space-between;
     padding: 10px 30px;
     animation: slideInUp 0.8s ease-out;
+    position: relative;
+    z-index: 1;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .social__links a{
@@ -864,7 +989,73 @@ footer, .container{
 .social__links a:hover i{
     transform: translateY(-8px) scale(1.2) rotate(5deg);
     color: cyan;
-    filter: drop-shadow(0 0 10px rgba(0, 255, 255, 0.6));
+    filter: drop-shadow(0 0 15px rgba(0, 255, 255, 0.8));
+}
+
+/* ==================== SCROLL REVEAL ANIMATION ==================== */
+
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.reveal-left {
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.reveal-left.active {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.reveal-right {
+    opacity: 0;
+    transform: translateX(50px);
+    transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.reveal-right.active {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.reveal-scale {
+    opacity: 0;
+    transform: scale(0.8);
+    transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.reveal-scale.active {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Add scroll reveal to elements */
+.about h1, .about__info, .projects h1, .activities h1, .program h1,
+.about__img img, .images__projects img, .activities p, .program table {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.about h1, .activities h1, .program h1 {
+    transform: translateY(30px);
+}
+
+.about h1.reveal-active, .about__info.reveal-active, .projects h1.reveal-active, 
+.activities h1.reveal-active, .program h1.reveal-active,
+.about__img img.reveal-active, .images__projects img.reveal-active, 
+.activities p.reveal-active, .program table.reveal-active {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 /* ==================== RESPONSIVE DESIGN ==================== */
@@ -955,7 +1146,7 @@ footer, .container{
     }
 
     .program table td,th{
-        padding: 8px;
+        padding: 12px 15px;
         font-size: 0.9rem;
     }
 
@@ -1120,7 +1311,7 @@ footer, .container{
     }
 
     .program table td,th{
-        padding: 6px;
+        padding: 8px 10px;
     }
 
     .row{
@@ -1284,7 +1475,7 @@ footer, .container{
     }
 
     .program table td,th{
-        padding: 5px;
+        padding: 5px 8px;
     }
 
     .row{
